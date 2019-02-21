@@ -20,9 +20,9 @@ const RepoContainer = props => {
               <span
                 style={{
                   border: '1px solid lightgray ',
-                  backgroundColor: '#eee', 
-                  borderRadius: "3px",
-                  padding: "5px"
+                  backgroundColor: '#eee',
+                  borderRadius: '3px',
+                  padding: '5px'
                 }}
               >
                 No Language Detected
