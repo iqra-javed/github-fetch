@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import RepoContainer from './RepoContainer';
 import '../styles/SearchInput.css';
 
 class SearchInput extends Component {
@@ -66,6 +67,7 @@ class SearchInput extends Component {
           onChange={this.inputChangeHandler}
         />
         <button onClick={this.fetchUserHandler}>Search</button>
+        <RepoContainer repos={this.state.currentUserRepos}/>
       </div>
     );
   }
