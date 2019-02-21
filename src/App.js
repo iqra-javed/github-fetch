@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import AppBar from './components/AppBar';
 import SearchInput from './components/SearchInput';
+import RepoDetails from './components/Repo-Details';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar title="Github Browser" />
-        <SearchInput />
+        <Route exact path ='/' component={SearchInput}/>
+        <Route path ='/repos/:name' component={RepoDetails}/>
       </div>
     );
   }

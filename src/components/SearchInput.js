@@ -40,6 +40,7 @@ class SearchInput extends Component {
             return Promise.reject(error);
           })
           .then(data => {
+            // sort in decending order by number of stars
             data.sort((a, b) => {
               return b.stargazers_count - a.stargazers_count;
             });
@@ -53,7 +54,10 @@ class SearchInput extends Component {
           .catch(error => {
             console.log('Fetching Failed: ', error.statusText);
           })
-      : this.setState({ error: 'Please enter a user to continue.' });
+      : this.setState({
+          error: 'Please enter a user to continue.',
+          isLoading: false
+        });
   };
 
   render() {
