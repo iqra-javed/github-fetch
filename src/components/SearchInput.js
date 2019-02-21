@@ -17,7 +17,7 @@ class SearchInput extends Component {
   fetchUserHandler = () => {
     let user = this.state.currentUser;
 
-    fetch(`https://api.github.com/users/${user}/repos`)
+    fetch(`https://api.github.com/users/${user}/repos?per_page=100`)
       .then(response => {
         if (response.ok) {
           return response.json();

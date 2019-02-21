@@ -1,0 +1,18 @@
+.repo-card {
+    box-sizing: border-box;
+    background-color: #fefefe;
+    width: 320px;
+    height: 190px;
+    margin-bottom: 20px;
+    border: 2px solid #eee;
+    border-radius: 4px;
+    text-align: start;
+    padding: 20px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #eee;
+    height: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+}
