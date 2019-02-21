@@ -16,7 +16,7 @@ class SearchInput extends Component {
 
   fetchUserHandler = () => {
     let user = this.state.currentUser;
-
+    user ? (
     fetch(`https://api.github.com/users/${user}/repos?per_page=100`)
       .then(response => {
         if (response.ok) {
@@ -29,21 +29,21 @@ class SearchInput extends Component {
             statusText: response.statusText
           }
         );
-        this.setState({ error });
+        this.setState({ error : error, currentUserRepos: []});
         return Promise.reject(error);
       })
       .then(data => {
        data.sort((a, b) => {
           return b.stargazers_count - a.stargazers_count;
         });
-        this.setState({ currentUserRepos: data, currentUser: '', error: {} });
+        this.setState({ currentUserRepos: data, currentUser: '', error: '' });
       })
       .catch(error => {
         console.log(
-          'There has been a problem with your fetch operation: ',
+          'Fetching Failed: ',
           error.statusText
         );
-      });
+      })) : this.setState({error: "Please enter a user to continue."})
   };
 
   render() {
@@ -56,7 +56,7 @@ class SearchInput extends Component {
             </span>
             {this.state.error.statusText === 'Not Found'
               ? 'User not found. Please try again.'
-              : this.state.error.statusText}
+              : (this.state.error.statusText || this.state.error)}
           </div>
         )}
         <input
@@ -65,6 +65,7 @@ class SearchInput extends Component {
           name='currentUser'
           value={this.state.currentUser}
           onChange={this.inputChangeHandler}
+          required
         />
         <button onClick={this.fetchUserHandler}>Search</button>
         <RepoContainer repos={this.state.currentUserRepos}/>
