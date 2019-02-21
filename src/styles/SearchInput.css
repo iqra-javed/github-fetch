@@ -1,0 +1,29 @@
+.input-container {
+    margin-top: 30px;
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    width: 40%;
+    height: 25px;
+    padding-left: 10px;
+    border-right: none;
+    border-radius: 2px 0 0 2px;
+}
+
+button {
+    box-sizing: border-box;
+    border: none;
+    height: 25px;
+    width: 5%;
+    background-color: #1778ED;
+    color: #ffffff;
+    border-radius: 0 2px 2px 0;
+    border-left: none;
+    padding: 0;
+}
+
+.error-message {
+    color: red;
+}
