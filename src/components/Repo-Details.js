@@ -52,19 +52,19 @@ class RepoDetails extends Component {
 
         <ul className='repo-info'>
           <li>
-            <strong>Owner Username:</strong>
+            <strong>Owner: </strong>
             {this.matchedRepo.owner.login}
           </li>
           <li>
-            <strong>Repo URL:</strong>
+            <strong>Repo: </strong>
             <a href={this.matchedRepo.html_url}>{this.matchedRepo.html_url}</a>
           </li>
           <li>
-            <strong>Readme:</strong>
+            <strong>Readme: </strong>
             <a href={this.state.readme}>{this.state.readme}</a>
           </li>
           <li>
-            <strong>Watchers:</strong>
+            <strong>Watchers: </strong>
             {this.matchedRepo.watchers}
           </li>
         </ul>
