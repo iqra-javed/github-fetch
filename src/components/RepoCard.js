@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 import '../styles/RepoCard.css';
 
-const RepoCard = props => {
+const RepoCard = (props) => {
+
   return (
     <div className='repo-card'>
       <h4 className='border-bottom'>

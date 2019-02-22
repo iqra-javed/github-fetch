@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import AppBar from './components/AppBar';
 import SearchInput from './components/SearchInput';
@@ -63,10 +63,12 @@ class App extends Component {
 
   render() {
     let loading = <img src={logo} className='app-logo' alt='logo' />;
+   
     return (
       <div className='App'>
         <AppBar title='Github Browser' />
         <SearchInput {...this.state} fetchUserHandler={this.fetchUserHandler} />
+        <Switch>
         <Route exact path='/repos'>
           {!this.state.isLoading ? (
             <RepoContainer repos={this.state.currentUserRepos} />
@@ -79,6 +81,7 @@ class App extends Component {
           path='/repos/:name'
           render={() => <RepoDetails repos={this.state.currentUserRepos} />}
         />
+        </Switch>
       </div>
     );
   }
