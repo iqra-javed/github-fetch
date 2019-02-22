@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/RepoCard.css';
-import RepoDetails from './Repo-Details';
 
 const RepoCard = props => {
   return (
