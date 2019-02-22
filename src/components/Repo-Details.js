@@ -1,8 +1,9 @@
 import React from 'react';
 
 const RepoDetails = props => {
+    // console.log(window.location.href)
     return (
-        <div>Hello from repo details</div>
+        <div>Hello from Repo Details</div>
     )
 }
 

@@ -5,12 +5,12 @@ import '../styles/RepoContainer.css';
 
 const RepoContainer = props => {
   let non_forked_repos = props.repos.filter(repo => !repo.fork);
-
   return (
     <div className='repo-container'>
       {non_forked_repos.map(repo => (
         <RepoCard
           key={repo.id}
+          url={repo.url}
           name={repo.name}
           description={repo.description}
           language={
