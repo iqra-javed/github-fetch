@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 
 import AppBar from './components/AppBar';
 import SearchInput from './components/SearchInput';
@@ -18,7 +18,9 @@ class App extends Component {
     };
   }
 
-  fetchUserHandler = user => {
+  fetchUserHandler = e => {
+    e.preventDefault();
+    let user = e.target.elements.currentUser.value;
     this.setState({ isLoading: true });
 
     user
@@ -59,32 +61,34 @@ class App extends Component {
           error: 'Please enter a user to continue.',
           isLoading: false
         });
+
+    this.props.history.push('/repos');
   };
 
   render() {
     let loading = <img src={logo} className='app-logo' alt='logo' />;
-   
+
     return (
       <div className='App'>
         <AppBar title='Github Browser' />
         <SearchInput {...this.state} fetchUserHandler={this.fetchUserHandler} />
         <Switch>
-        <Route exact path='/repos'>
-          {!this.state.isLoading ? (
-            <RepoContainer repos={this.state.currentUserRepos} />
-          ) : (
-            loading
-          )}
-        </Route>
-        <Route
-          exact
-          path='/repos/:name'
-          render={() => <RepoDetails repos={this.state.currentUserRepos} />}
-        />
+          <Route exact path='/repos'>
+            {!this.state.isLoading ? (
+              <RepoContainer repos={this.state.currentUserRepos} />
+            ) : (
+              loading
+            )}
+          </Route>
+          <Route
+            exact
+            path='/repos/:name'
+            render={() => <RepoDetails repos={this.state.currentUserRepos} />}
+          />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
