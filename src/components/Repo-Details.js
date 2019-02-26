@@ -41,11 +41,7 @@ class RepoDetails extends Component {
       <div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <Link to='/repos'>
-            <button
-              style={{ margin: '20px 0', backgroundColor: 'mediumpurple' }}
-            >
-              Back
-            </button>
+            <button className='back-btn'>Back</button>
           </Link>
           <h3>{this.matchedRepo.name}</h3>
         </div>

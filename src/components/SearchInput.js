@@ -42,7 +42,9 @@ class SearchInput extends Component {
           required
         />
         <Link to={'/repos'}>
-          <button onClick={this.fetchDataAndClearInput}>Search</button>
+          <button className='search-btn' onClick={this.fetchDataAndClearInput}>
+            Search
+          </button>
         </Link>
       </div>
     );

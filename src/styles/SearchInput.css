@@ -32,8 +32,10 @@ button {
     outline: none;
 }
 
-button:hover {
-    cursor: pointer;
+.search-btn:hover {
+    background-color: #DBE2E8;
+    border: 2px solid #3579E5;
+    color: #3579E5;
 }
 
 .error-message {
